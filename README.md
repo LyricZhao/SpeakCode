@@ -12,7 +12,7 @@
 
 - Just by simply speaking the code, you do not have to use your hand!
 
- ![view](http://otxp6khet.bkt.clouddn.com/view.png)
+ ![view](http://otxp6khet.bkt.clouddn.com/view2.png)
 
 #### Environments
 
