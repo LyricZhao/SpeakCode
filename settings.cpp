@@ -2,6 +2,7 @@
 # include <cstring>
 # include <iostream>
 # include <cassert>
+# include <mach-o/dyld.h>
 
 # include "settings.h"
 # include "ui_settings.h"
@@ -53,7 +54,16 @@ void processStr(char *str, std:: string &istr) {
 settingsvalue:: settingsvalue() {
     // the user settings
     std:: ifstream settingsfileIn;
-    settingsfileIn.open("settingsFile");
+
+    char g_path[1024];
+    unsigned int psz = 1024;
+    _NSGetExecutablePath(g_path, &psz);
+    psz = strlen(g_path) - 10;
+    char *sf = (char *) "/settingsFile";
+    memcpy(g_path + psz, sf, strlen(sf) + 1);
+    // std:: cout << g_path << std:: endl;
+
+    settingsfileIn.open(g_path);
 
     char inputStr[MAXLENGTH];
 
@@ -81,7 +91,16 @@ settingsvalue:: settingsvalue() {
 void settingsvalue:: writeIntoFile() {
     // the user settings
     std:: ofstream settingsfileOut;
-    settingsfileOut.open("settingsFile");
+
+    char g_path[1024];
+    unsigned int psz = 1024;
+    _NSGetExecutablePath(g_path, &psz);
+    psz = strlen(g_path) - 10;
+    char *sf = (char *) "/settingsFile";
+    memcpy(g_path + psz, sf, strlen(sf) + 1);
+    // std:: cout << g_path << std:: endl;
+
+    settingsfileOut.open(g_path);
 
     // strs
     for(int i = 0; i < 8; ++ i) {

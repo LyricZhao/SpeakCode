@@ -176,7 +176,7 @@ int speak_init() {
     char g_path[1024];
     unsigned int psz = 1024;
     _NSGetExecutablePath(g_path, &psz);
-    std:: cout << g_path << std:: endl;
+    // std:: cout << g_path << std:: endl;
     psz = strlen(g_path) - 10;
 
     mwin -> printOnConsoleWON(std:: string("Loading speaking config .... "));
