@@ -205,7 +205,6 @@
         <file>Sphinx/TAR0572/0572.dic</file>
         <file>Sphinx/TAR0572/0572.lm</file>
         <file>Sphinx/continuous.c</file>
-        <file>Sphinx/libtool</file>
         <file>Sphinx/rebuild.sh</file>
         <file>about.cpp</file>
         <file>about.h</file>

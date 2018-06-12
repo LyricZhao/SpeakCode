@@ -206,7 +206,7 @@ void Writer:: signal_construct() {
     spec["model"] = "%";
     spec["more"] = ">";
     spec["multiply"] = "*";
-    spec["negate"] = "-";
+    spec["negate"] = "~";
     spec["or"] = "|";
     spec["plus"] = "+";
     spec["question"] = "?";
@@ -216,6 +216,7 @@ void Writer:: signal_construct() {
     spec["semicolon"] = ";";
     spec["underline"] = "_";
 }
+
 void Writer:: num_construct() {
     numbers["one"] = 1;
     numbers["two"] = 2;
@@ -276,7 +277,7 @@ void Writer:: commandIntoAction(std:: string command) {
     splitIntoVector(command, comcc);
     for(unsigned i = 0; i < comcc.size(); ++ i) {
         int tpoc = judgeCommandType(comcc[i]);
-        std:: cout << "spliting " << comcc[i] << std:: endl;
+        // std:: cout << "spliting " << comcc[i] << std:: endl;
         assert(tpoc != -1);
         switch (tpoc) {
         case 0:

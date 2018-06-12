@@ -171,14 +171,13 @@ recognize_from_microphone()
 }
 
 int speak_init() {
-    std:: cout << "here" << std:: endl;
+    // std:: cout << "here" << std:: endl;
     // first we need to find the path
-    char g_path[512];
-    unsigned int psz = 512;
+    char g_path[1024];
+    unsigned int psz = 1024;
     _NSGetExecutablePath(g_path, &psz);
     std:: cout << g_path << std:: endl;
-    -- psz;
-    while(g_path[psz] != '/') -- psz;
+    psz = strlen(g_path) - 10;
 
     mwin -> printOnConsoleWON(std:: string("Loading speaking config .... "));
     int argc = 9;
@@ -186,41 +185,41 @@ int speak_init() {
     char **argv = (char **) malloc(9 * sizeof(char *));
 
     // argv[0]
-    argv[0] = (char *) malloc(sizeof(char) * 256);
+    argv[0] = (char *) malloc(sizeof(char) * 1024);
     memcpy(argv[0], g_path, psz);
     char *ta0 = (char *) "/pocketsphinx_continuous";
     memcpy(argv[0] + psz, ta0, strlen(ta0) + 1);
-    std:: cout << argv[0] << std:: endl;
+    // std:: cout << argv[0] << std:: endl;
 
     // argv[1]
     argv[1] = (char *) "-hmm";
 
     // argv[2]
-    argv[2] = (char *) malloc(sizeof(char) * 256);
+    argv[2] = (char *) malloc(sizeof(char) * 1024);
     memcpy(argv[2], g_path, psz);
     char *ta2 = (char *) "/en-us-semi/";
     memcpy(argv[2] + psz, ta2, strlen(ta2) + 1);
-    std:: cout << argv[2] << std:: endl;
+    // std:: cout << argv[2] << std:: endl;
 
     // argv[3]
     argv[3] = (char *) "-dict";
 
     // argv[4]
-    argv[4] = (char *) malloc(sizeof(char) * 256);
-    memcpy(argv[4], g_path, psz);
+    argv[4] = (char *) malloc(sizeof(char) * 1024);
+    memcpy(argv[4], g_path, psz + 1);
     char *ta4 = (char *) "/TAR0572/0572.dic";
     memcpy(argv[4] + psz, ta4, strlen(ta4) + 1);
-    std:: cout << argv[4] << std:: endl;
+    // std:: cout << argv[4] << std:: endl;
 
     // argv[5]
     argv[5] = (char *) "-lm";
 
     // argv[6]
-    argv[6] = (char *) malloc(sizeof(char) * 256);
+    argv[6] = (char *) malloc(sizeof(char) * 1024);
     memcpy(argv[6], g_path, psz);
     char *ta6 = (char *) "/TAR0572/0572.lm";
     memcpy(argv[6] + psz, ta6, strlen(ta6) + 1);
-    std:: cout << argv[6] << std:: endl;
+    // std:: cout << argv[6] << std:: endl;
 
     // argv[7]
     argv[7] = (char *) "-inmic";
