@@ -1,8 +1,6 @@
-### SpeakCode v1.0
+### SpeakCode v1.1
 
 #### Introduction
-
-- Github: https://github.com/LyricZhao/SpeakCode
 
 - A code editor with ***Speech Recognition***.
 
@@ -12,7 +10,7 @@
 
 - Just by simply speaking the code, you do not have to use your hand!
 
- ![view](http://otxp6khet.bkt.clouddn.com/view2.png)
+  ![view](http://otxp6khet.bkt.clouddn.com/view.png)
 
 #### Environments
 
@@ -127,8 +125,8 @@
 
 #### Workload
 
-- About **1.5k** LoC.
-- The most difficult part is linking the CMUSphinux to my QT program.
+- About **2k** LoC.
+- The most difficult part is training the recognition part (although the current rate is not high) and linking the CMUSphinux to my QT program.
 - And I have no experience on QT, I spent a little time to learn it, it also needs my effort.
 - What's more, I also spent time on compiling and packing my program into an App which can run on all the macOS devices.
 
